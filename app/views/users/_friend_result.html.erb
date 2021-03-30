@@ -12,9 +12,15 @@
       <%= fa_icon 'eye' %>
       View profile
     <% end %>
-    <%= link_to "#", class: "btn btn-sm btn-success", method: :post do %>
-      <%= fa_icon 'plus' %>
-      Add friend
+    <% unless current_user.friend_with?(friend) %>
+      <%= link_to "#", class: "btn btn-sm btn-success", method: :post do %>
+        <%= fa_icon 'plus' %>
+        Add friend
+      <% end %>
+    <% else %>
+      <div class="badge badge-secondary">
+        You are friends 
+      </div>
     <% end %>
   </div>
   <% end %>
