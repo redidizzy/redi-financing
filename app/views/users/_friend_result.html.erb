@@ -8,7 +8,7 @@
     <strong>Name:</strong> <%= friend.full_name %>
     <strong>Email:</strong> <%= friend.email %>
     <strong>Actions:</strong> 
-    <%= link_to "#", class: "btn btn-sm btn-primary" do %>
+    <%= link_to user_path(friend), class: "btn btn-sm btn-primary" do %>
       <%= fa_icon 'eye' %>
       View profile
     <% end %>

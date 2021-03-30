@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   delete 'friendship/:id', to:'friendships#destroy', as: "friendship"
   post 'friendships', to: 'friendships#create'
   get 'search_friends', to: 'users#search'
+  resources :users, only: [:show]
 end

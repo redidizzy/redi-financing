@@ -1,0 +1,25 @@
+<h2>User details</h2>
+
+<div class="card card-header results-block">
+  <div class="mb-3">
+    <strong>Name:</strong> <%= @user.full_name %>
+    <strong>Email:</strong> <%= @user.email %>
+    <strong>Actions:</strong> 
+    <% unless current_user.friend_with?(@user) %>
+      <%= link_to friendships_path(friend: @user), class: "btn btn-sm btn-success", method: :post do %>
+        <%= fa_icon 'plus' %>
+        Add friend
+      <% end %>
+    <% else %>
+      <div class="badge badge-secondary">
+        You are friends 
+      </div>
+       <%= link_to friendship_path(@user), method: :delete, data: { confirm: "Are you sure ?" }, class: "btn btn-sm btn-warning" do %>
+                <%= fa_icon 'minus' %>
+                Unfriend
+              <% end %>
+    <% end %>
+  </div>
+</div>
+
+<%= render 'stocks/list' %>
