@@ -11,5 +11,6 @@ Rails.application.routes.draw do
 
   get 'my_friends', to:'users#my_friends'
   delete 'friendship/:id', to:'friendships#destroy', as: "friendship"
+  post 'friendships', to: 'friendships#create'
   get 'search_friends', to: 'users#search'
 end
